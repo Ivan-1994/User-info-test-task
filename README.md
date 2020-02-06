@@ -1,7 +1,7 @@
 # User-info-test-task
 Python, Django, Html, Css, JS, Jquery
 
-Тестовое задание Python/Django:
+**Тестовое задание Python/Django:**
 
 Разработать приложение которое будет состоять из двух небольших страниц:
 Страница пользователя 
