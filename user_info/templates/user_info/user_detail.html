@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="{% static 'js/user_page.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+    User Info
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Ip Address</th>
+            </tr>
+            </thead>
+            <tbody id="user_date">
+            </tbody>
+        </table>
+    </div>
+    <div class="container d-flex justify-content-center">
+        <div class="row">
+            <div class="col">
+                <div class="form-group" style="width: 300px;">
+                    <label>Дата от:</label>
+                    <input onchange="change_date_picker1();drawChartClick();drawChartPageViews();" type="text" class="form-control"
+                           id="datepicker1" placeholder="">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group" style="width: 300px;">
+                    <label>Дата до:</label>
+                    <input onchange="change_date_picker2();drawChartClick();drawChartPageViews();" type="text" class="form-control"
+                           id="datepicker2" placeholder="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div id="curve_chart" style="width: 900px; height: 500px;"></div>
+        </div>
+        <div class="col">
+            <div id="curve_chart1" style="width: 900px; height: 500px;"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date</th>
+                <th scope="col">Clicks</th>
+                <th scope="col">Page Views</th>
+            </tr>
+            </thead>
+            <tbody id="statictic_date">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        date_picker();
+        user_page({{ pk }});
+        loadChart();
+    </script>
+{% endblock %}
